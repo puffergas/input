@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name type="string">Saitek Saitek Pro Flight Quadrant</name>
+
+  <axis n="0">
+    <desc type="string">Throttle Engine 0</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[0]/throttle</property>
+      <factor type="double">.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+  <axis n="1">
+    <desc type="string">Throttle Engine 0</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[1]/throttle</property>
+      <factor type="double">.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+  <axis n="2">
+    <desc type="string">Mixture All Engines</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/mixture-all</property>
+      <factor type="double">-1</factor>
+      <offset type="double">0</offset>
+    </binding>
+  </axis>
+
+  <button n="0">
+      <desc>Boost Fuel Pump Left ON</desc>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/tank[0]/boost-pump", 1);
+          </script>
+      </binding>
+      <repeatable>0</repeatable>
+  </button>
+
+  <button n="1">
+      <desc>Boost Fuel Pump Left OFF</desc>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/tank[0]/boost-pump", 0)
+          </script>
+      </binding>
+      <repeatable>0</repeatable>
+  </button>
+
+  <button n="2">
+      <desc>Boost Fuel Pump Right ON</desc>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/tank[1]/boost-pump", 1)
+          </script>
+      </binding>
+      <repeatable>0</repeatable>
+  </button>
+
+  <button n="3">
+      <desc>Boost Fuel Pump Right OFF</desc>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/tank[1]/boost-pump", 0)
+          </script>
+      </binding>
+      <repeatable>0</repeatable>
+  </button>
+
+</PropertyList>

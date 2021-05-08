@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+
+<!-- Written for the DC-3
+     Throttle Quadrant
+-->
+
+<!--
+******************************************************************
+* tank[0], RH Aux,  valve setting 1
+* tank[1], RH Main, valve setting 2
+* tank[2], LH Main, valve setting 3
+* tank[3], LH Aux,  valve setting 4
+*
+* engine[0] LH
+* engine[1] RH
+******************************************************************
+-->
+
+<PropertyList>
+  <name type="string">Grayspace Inc. GearFalcon GPJC0000252</name>
+
+  <axis n="0">
+    <desc type="string">Propeller Pitch 0</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[0]/propeller-pitch</property>
+      <factor type="double">0.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+  <axis n="1">
+    <desc type="string">Propeller Pitch 1</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[1]/propeller-pitch</property>
+      <factor type="double">0.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+  <axis n="2">
+    <desc type="string">Throttle Engine 0</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[0]/throttle</property>
+      <factor type="double">0.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+  <axis n="3">
+    <desc type="string">Throttle Engine 0</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[1]/throttle</property>
+      <factor type="double">0.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+  <axis n="4">
+    <desc type="string">Mixture All Engines</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[0]/mixture</property>
+      <factor type="double">0.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+    <axis n="5">
+    <desc type="string">Mixture All Engines</desc>
+    <binding>
+      <command type="string">property-scale</command>
+      <property type="string">/controls/engines/engine[1]/mixture</property>
+      <factor type="double">0.5</factor>
+      <offset type="double">1</offset>
+    </binding>
+  </axis>
+
+  <button n="0">
+      <desc>Boost Fuel Pump Right ON</desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/tank[1]/boost-pump", 1);
+          </script>
+      </binding>
+      <mod-up>
+          <binding>
+              <command>nasal</command>
+              <script>setprop("/controls/fuel/tank[1]/boost-pump", 0)</script>
+          </binding>
+      </mod-up>
+  </button>
+
+  <button n="1">
+      <desc>Boost Fuel Pump Left ON</desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/tank[0]/boost-pump", 1);
+          </script>
+      </binding>
+      <mod-up>
+          <binding>
+              <command>nasal</command>
+              <script>setprop("/controls/fuel/tank[0]/boost-pump", 0)</script>
+          </binding>
+      </mod-up>
+  </button>
+
+  <button n="2">
+      <desc>Starter Right ON</desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/engines/engine[1]/starter", 1);
+          </script>
+      </binding>
+      <mod-up>
+          <binding>
+              <command>nasal</command>
+              <script>setprop("/controls/engines/engine[1]/starter", 0)</script>
+          </binding>
+      </mod-up>
+  </button>
+
+  <button n="3">
+      <desc>Starter Left Engine ON</desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/engines/engine[0]/starter", 1);
+          </script>
+      </binding>
+      <mod-up>
+          <binding>
+              <command>nasal</command>
+              <script>setprop("/controls/engines/engine[0]/starter", 0)</script>
+          </binding>
+      </mod-up>
+  </button>
+
+<!-- Left Fuel Valve -->
+
+  <button n="4">
+      <desc> Right-Aux-Tank Selector to Left Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/left-valve", 1);
+          </script>
+      </binding>
+  </button>
+
+  <button n="5">
+      <desc> Right-Main-Tank Selector to Left Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/left-valve", 2);
+          </script>
+      </binding>
+  </button>
+
+  <button n="6">
+      <desc> Left-Main-Tank Selector to Left Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/left-valve", 3);
+          </script>
+      </binding>
+  </button>
+
+  <button n="7">
+      <desc> Left-Aux-Tank Selector to Left Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/left-valve", 4);
+          </script>
+      </binding>
+  </button>
+
+  <button n="8">
+      <desc> Leff-OFF-Tank Selector to Left Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/left-valve", 0);
+          </script>
+      </binding>
+  </button>
+
+  <button n="22">
+      <desc>Landing Gear UP DDOWN</desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>controls.gearDown(-1)</script>          
+      </binding>
+      <mod-up>
+          <binding>
+              <command>nasal</command>
+              <script>controls.gearDown(1)</script>
+          </binding>
+      </mod-up>
+  </button>
+
+  <button n="23">
+      <desc>Tail Wheel Lock ON OFF</desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>setprop("/controls/gear/tailwheel-lock", 1)</script>
+      </binding>
+      <mod-up>
+          <binding>
+              <command>nasal</command>
+              <script>setprop("/controls/gear/tailwheel-lock", 0)</script>
+          </binding>
+      </mod-up>
+  </button>
+
+<!-- Right Fuel Valve -->
+
+  <button n="24">
+      <desc> Right-OFF-Tank Selector to Right Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/right-valve", 0);
+          </script>
+      </binding>
+  </button>
+
+  <button n="25">
+      <desc> Left-Aux-Tank Selector to Right Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/right-valve", 4);
+          </script>
+      </binding>
+  </button>
+
+  <button n="26">
+      <desc> Left-Main-Tank Selector to Right Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/right-valve", 3);
+          </script>
+      </binding>
+  </button>
+
+  <button n="27">
+      <desc> Right-Main-Aux-Tank Selector to Right Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/right-valve", 2);
+          </script>
+      </binding>
+  </button>
+
+  <button n="28">
+      <desc> Right-Aux-Tank Selector to Left Engine </desc>
+      <repeatable>0</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>
+              setprop("/controls/fuel/right-valve", 1);
+          </script>
+      </binding>
+  </button>
+
+</PropertyList>
